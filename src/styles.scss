@@ -1,13 +1,8 @@
-@import "sass/variables.scss";
-
-.App {
-  font-family: sans-serif;
-  text-align: center;
-
-  h1,
-  h2 {
-    font-size: 20px;
-    position: relative;
-    color: $primaryColor;
-  }
+body {
+  height: 100%;
+  background-image: url('img/evening-55067.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
