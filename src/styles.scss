@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   height: 100%;
   background-image: url('img/evening-55067.png');
@@ -5,4 +11,34 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin: 5em auto;
+  input{
+    width: 30%;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    font-size: 30px;
+    padding-left: 20px;
+    color: #333;
+    outline: none;
+  }
+
+  .search-btn{
+    position: relative;
+    transform: translate(-150%);
+    border: none;
+    background-color: inherit;
+    outline: none;
+    .search-icon{
+      font-size: 40px;
+      color: #333;
+
+    }
+  }
+
 }

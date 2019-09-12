@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Search from '@material-ui/icons/Search'
 import './styles.scss'
 
 const apiKey = 'e087d0a804187eb8ee6d5386f3c90258';
@@ -28,10 +29,13 @@ class App extends Component {
     render() {
         return (
             <>
-                <form action="">
-                    <input onChange={this.handleOnChange} type="text" value={this.state.searchVal}/>
-                    <button>Search</button>
+                <form className='search-form'>
+                    <input onChange={this.handleOnChange} type="text" value={this.state.searchVal} placeholder='City...'/>
+                    <button className='search-btn'>
+                      <Search className='search-icon'/>
+                    </button>
                 </form>
+
             </>
         )
 
