@@ -109,6 +109,8 @@ class App extends Component {
                                                 desc={this.state.description}
                 />}
 
+                <div className="bg-image"/>
+
             </>
         )
     }

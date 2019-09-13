@@ -6,21 +6,47 @@
   box-sizing: border-box;
 }
 
-body {
+//body {
+//  height: 100%;
+//  background-image: url('img/seaside-1149687_1920.jpg');
+//  background-position: center center;
+//  background-repeat: no-repeat;
+//  background-attachment: fixed;
+//  background-size: cover;
+//  //filter: blur(8px);
+//}
+
+.bg-image {
   height: 100%;
-  background-image: url('img/evening-55067.png');
+  width: 100%;
+  background-image: url('img/seaside-1149687_1920.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
-  margin: 5em auto;
-  input{
-    width: 30%;
+  width: 100%;
+  min-width: 300px;
+  margin: 5em 0;
+
+  input {
+    width: 100%;
     height: 50px;
     border-radius: 30px;
     border: none;
@@ -30,13 +56,14 @@ body {
     outline: none;
   }
 
-  .search-btn{
+  .search-btn {
     position: relative;
     transform: translate(-150%);
     border: none;
     background-color: inherit;
     outline: none;
-    .search-icon{
+
+    .search-icon {
       font-size: 40px;
       color: #333;
 
@@ -46,7 +73,7 @@ body {
 
 /// Error
 
-.error{
+.error {
   color: white;
   font-family: sans-serif;
   font-size: 40px;
@@ -56,21 +83,43 @@ body {
 
 /// City info
 
-.weather-display{
-  width: 30%;
-  margin: 0 auto;
+.weather-display {
+  margin-top: 10vh;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  font-size: 40px;
+  font-size: 34px;
   font-family: 'Manjari', sans-serif;
-  h1{
+  text-shadow: 5px 1px 5px black;
+
+  .weather-city {
     font-weight: 400;
-    margin-bottom: 50px;
+    font-size: 100px;
   }
-  i{
-    font-size: 150px;
+
+  .weather-info {
+    //margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .weather-temp {
+      margin-top: 40px;
+      font-weight: 400;
+
+    }
+
+    i {
+      font-size: 150px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 24px;
+    }
   }
+
 }
 
