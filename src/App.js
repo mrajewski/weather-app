@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import './styles.scss';
+import 'weather-icons/css/weather-icons.css'
 import Search from '@material-ui/icons/Search'
 import Weather from "./components/weather";
-import './styles.scss';
-import './css/weather-icons.min.css'
 
 const apiKey = 'e087d0a804187eb8ee6d5386f3c90258';
 
@@ -60,7 +60,7 @@ class App extends Component {
         this.setState({
             searchVal: ''
         });
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=Warsaw&appid=${apiKey}`, {
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.searchVal}&appid=${apiKey}`, {
             method: "GET"
         })
             .then(resp => resp.json())
@@ -68,9 +68,9 @@ class App extends Component {
                 console.log(data);
                 this.setState({
                     city: data.name,
-                    temp: data.main.temp,
-                    tempMax: data.main.temp_max,
-                    tempMin: data.main.temp_min
+                    temp: Math.floor(data.main.temp - 273.15),
+                    tempMax: Math.floor(data.main.temp_max - 273.15),
+                    tempMin: Math.floor(data.main.temp_min - 273.15)
                 });
                 this.getIcon(data.weather[0].id)
 
