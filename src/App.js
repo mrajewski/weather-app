@@ -11,18 +11,17 @@ class App extends Component {
         searchVal: '',
         city: '',
         temp: '',
-        maxTemp: '',
-        minTemp: '',
+        description: '',
         icon: undefined,
+        error:'',
         allIcons: {
-            thunder: 'wi-owm-200',
-            drizzle: 'wi-owm-520',
-            rain:'wi-owm-302',
-            snow: 'wi-owm-600',
-            atmosphere: 'wi-owm-741',
-            clear: 'wi-owm-804' ,
-            clouds: 'wi-owm-904'
-
+            thunder: 'wi-thunderstorm',
+            drizzle: 'wi-sleet',
+            rain:'wi-storm-showers',
+            snow: 'wi-snow',
+            atmosphere: 'wi-fog',
+            clear: 'wi-day-sunny' ,
+            clouds: 'wi-day-fog'
         }
     };
 
@@ -54,7 +53,6 @@ class App extends Component {
         }
     };
 
-
     handleOnSubmit = e => {
         e.preventDefault();
         this.setState({
@@ -69,13 +67,20 @@ class App extends Component {
                 this.setState({
                     city: data.name,
                     temp: Math.floor(data.main.temp - 273.15),
-                    tempMax: Math.floor(data.main.temp_max - 273.15),
-                    tempMin: Math.floor(data.main.temp_min - 273.15)
+                    description: data.weather[0].description,
+                    error:''
                 });
                 this.getIcon(data.weather[0].id)
 
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                this.setState({
+                    city: '',
+                    temp: '',
+                    description: '',
+                    error: 'There is no such city in our base :('
+                });
+            })
 
     };
 
@@ -90,23 +95,22 @@ class App extends Component {
             <>
                 <form onSubmit={this.handleOnSubmit} className='search-form'>
                     <input onChange={this.handleOnChange} type="text" value={this.state.searchVal}
-                           placeholder='City...'/>
+                           placeholder='City...'
+                           required
+                    />
                     <button className='search-btn'>
                         <Search className='search-icon'/>
                     </button>
                 </form>
-                <Weather temp={this.state.temp}
-                         tempMax={this.state.maxTemp}
-                         tempMin={this.state.minTemp}
-                         icon={this.state.icon}
-                />
+                {this.state.error?<h1 className='error'>{this.state.error}</h1>:null}
+                {!this.state.city?null:<Weather temp={this.state.temp}
+                                                icon={this.state.icon}
+                                                name={this.state.city}
+                                                desc={this.state.description}
+                />}
 
             </>
         )
-
-
     }
-
 }
-
 export default App;
