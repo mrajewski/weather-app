@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Weather(props) {
-
     return (
         <section className='weather-display'>
             <h1 className='weather-city'>{props.name}</h1>
@@ -16,7 +15,6 @@ function Weather(props) {
 
         </section>
     );
-
 }
 
 export default Weather
