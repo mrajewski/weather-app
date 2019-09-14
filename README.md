@@ -3,7 +3,7 @@ react weather-app
 
 -React + OpenWeather API
 
-#How to run
+# How to run
 
 npm install
 
