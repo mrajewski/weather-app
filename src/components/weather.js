@@ -7,8 +7,11 @@ function Weather(props) {
             <h1 className='weather-city'>{props.name}</h1>
             <div className="weather-info">
                 <i className={`wi ${props.icon}`}/>
-                <h1 className='weather-temp'>{props.temp}&deg;</h1>
-                <p className='weather-desc'>{props.desc}</p>
+                <div className="right-info">
+                    <h1 className='weather-temp'>{props.temp}&deg;</h1>
+                    <p className='weather-desc'>{props.desc}</p>
+                </div>
+
             </div>
 
         </section>
